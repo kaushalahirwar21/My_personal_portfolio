@@ -1,27 +1,32 @@
-# My Portfolio Website
+# Personal Portfolio
 
-This is my personal portfolio website where I showcase my skills, projects, resume, and contact details. It is built with HTML, CSS, and JavaScript using a clean responsive design.
+A responsive portfolio website showcasing my skills, projects, resume, and contact details.
+
+## About
+
+This portfolio is built as a clean static website using HTML, CSS, and JavaScript. It includes a modern animated interface, social profile links, a downloadable resume, project cards, and a contact section.
 
 ## Features
 
-- Responsive layout for desktop, tablet, and mobile
-- Dynamic GitHub projects section
-- Clickable project cards with repository and live demo links
-- Smooth scroll reveal animations
-- Contact form linked with WhatsApp
+- Responsive design for desktop and mobile screens
+- About, skills, projects, and contact sections
 - Resume download option
+- Social media and GitHub profile links
+- Smooth animations and interactive UI effects
 
-## Technologies Used
+## Tech Stack
 
 - HTML5
 - CSS3
 - JavaScript
 - Boxicons
+- Font Awesome
+- Devicon
 - ScrollReveal
 - Typed.js
 
 ## Contact
 
-- LinkedIn: [Kaushal Singh Ahirwar](https://www.linkedin.com/in/kaushal-singh-ahirwar)
 - GitHub: [kaushalahirwar21](https://github.com/kaushalahirwar21)
-- Instagram: [kaushal_ahirwar21](https://www.instagram.com/kaushal_ahirwar21)
+- LinkedIn: [Kaushal Singh Ahirwar](https://www.linkedin.com/in/kaushal-singh-ahirwar)
+- Instagram: [soldier.py](https://www.instagram.com/soldier.py)
