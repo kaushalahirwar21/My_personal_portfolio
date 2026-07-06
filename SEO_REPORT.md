@@ -11,7 +11,7 @@ All structural modifications, metadata injection, schema markup, and performance
 ### A. Meta Tags & Header Enhancements
 - **Tab Title:** Optimized to `Kaushal Singh Ahirwar | Python & Django Backend Developer Portfolio` to directly target developer query strings.
 - **Preconnect Resource Hints:** Injected `<link rel="preconnect">` declarations for Google Fonts, jsDelivr, Cloudflare cdnjs, and unpkg to speed up DNS/TCP resolution and decrease LCP/FCP loading latencies.
-- **Canonicalization:** Defined `<link rel="canonical">` referencing `https://kaushalahirwar21.github.io/My_personal_portfolio/` to consolidate search equity and prevent duplicate indexing.
+- **Canonicalization:** Defined `<link rel="canonical">` referencing `https://kaushal-port.netlify.app/` to consolidate search equity and prevent duplicate indexing.
 - **Theme Color:** Set to `#8b5cf6` (purple) to customize mobile browser address bar themes.
 - **Crawling Robots:** Declared `<meta name="robots" content="index, follow">` to instruct bots to scan and propagate link juice.
 
@@ -38,7 +38,7 @@ All structural modifications, metadata injection, schema markup, and performance
 <meta name="keywords" content="Kaushal Singh Ahirwar, Kaushal Singh Portfolio, Kaushal Singh Python Developer, Kaushal Singh Django Developer, Kaushal Singh AI Developer, Kaushal Singh Machine Learning, Kaushal Singh Bhopal, Bansal College of Engineering, Backend Developer, Python Developer Bhopal">
 <meta name="author" content="Kaushal Singh Ahirwar">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://kaushalahirwar21.github.io/My_personal_portfolio/">
+<link rel="canonical" href="https://kaushal-port.netlify.app/">
 <meta name="theme-color" content="#8b5cf6">
 ```
 
@@ -51,18 +51,18 @@ To ensure the portfolio renders professional cards when shared across LinkedIn, 
 ```html
 <!-- Open Graph / Facebook Share Preview -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://kaushalahirwar21.github.io/My_personal_portfolio/">
+<meta property="og:url" content="https://kaushal-port.netlify.app/">
 <meta property="og:title" content="Kaushal Singh Ahirwar | Python & Django Backend Developer Portfolio">
 <meta property="og:description" content="Kaushal Singh Ahirwar is a Python Django Backend Developer and Machine Learning enthusiast in Bhopal. Browse Python projects, developer skills, and contact details.">
-<meta property="og:image" content="https://kaushalahirwar21.github.io/My_personal_portfolio/pic.png">
+<meta property="og:image" content="https://kaushal-port.netlify.app/pic.png">
 <meta property="og:site_name" content="Kaushal Singh Ahirwar Portfolio">
 
 <!-- Twitter Card Share Preview -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://kaushalahirwar21.github.io/My_personal_portfolio/">
+<meta name="twitter:url" content="https://kaushal-port.netlify.app/">
 <meta name="twitter:title" content="Kaushal Singh Ahirwar | Python & Django Backend Developer Portfolio">
 <meta name="twitter:description" content="Kaushal Singh Ahirwar is a Python Django Backend Developer and Machine Learning enthusiast in Bhopal. Browse Python projects, developer skills, and contact details.">
-<meta name="twitter:image" content="https://kaushalahirwar21.github.io/My_personal_portfolio/pic.png">
+<meta name="twitter:image" content="https://kaushal-port.netlify.app/pic.png">
 ```
 
 ---
@@ -76,8 +76,8 @@ Embedded Schema.org `Person` type structured metadata to help Google extract bio
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Kaushal Singh Ahirwar",
-  "url": "https://kaushalahirwar21.github.io/My_personal_portfolio/",
-  "image": "https://kaushalahirwar21.github.io/My_personal_portfolio/pic.png",
+  "url": "https://kaushal-port.netlify.app/",
+  "image": "https://kaushal-port.netlify.app/pic.png",
   "jobTitle": "Backend Python Django Developer",
   "alumniOf": {
     "@type": "CollegeOrUniversity",
@@ -131,11 +131,11 @@ Embedded Schema.org `Person` type structured metadata to help Google extract bio
 
 ## 7. Action Items (How to Request Google Indexing)
 
-Once these changes are pushed/deployed to GitHub Pages, follow these steps to index the website immediately:
+Once these changes are pushed/deployed to Netlify, follow these steps to index the website immediately:
 
 1. **Verify Domain in Search Console:**
    - Go to [Google Search Console](https://search.google.com/search-console).
-   - Enter your site URL: `https://kaushalahirwar21.github.io/My_personal_portfolio/`.
+   - Enter your site URL: `https://kaushal-port.netlify.app/`.
    - Complete verification using the HTML Tag verification method (copy the `<meta name="google-site-verification" content="...">` and paste it in `index.html`'s head, then commit/push).
 2. **Submit your Sitemap:**
    - On the left menu, select **Sitemaps**.
