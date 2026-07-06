@@ -4,17 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY PORTFOLIO</title>
 
+    <!-- Resource Hints for Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
 
+    <!-- SEO Meta Tags -->
+    <title>Kaushal Singh Ahirwar | Python & Django Backend Developer Portfolio</title>
+    <meta name="description" content="Kaushal Singh Ahirwar is a Python Django Backend Developer and Machine Learning enthusiast in Bhopal. Browse Python projects, developer skills, and contact details.">
+    <meta name="keywords" content="Kaushal Singh Ahirwar, Kaushal Singh Portfolio, Kaushal Singh Python Developer, Kaushal Singh Django Developer, Kaushal Singh AI Developer, Kaushal Singh Machine Learning, Kaushal Singh Bhopal, Bansal College of Engineering, Backend Developer, Python Developer Bhopal">
+    <meta name="author" content="Kaushal Singh Ahirwar">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kaushalahirwar21.github.io/My_personal_portfolio/">
+    <meta name="theme-color" content="#8b5cf6">
+
+    <!-- Open Graph / Facebook Share Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kaushalahirwar21.github.io/My_personal_portfolio/">
+    <meta property="og:title" content="Kaushal Singh Ahirwar | Python & Django Backend Developer Portfolio">
+    <meta property="og:description" content="Kaushal Singh Ahirwar is a Python Django Backend Developer and Machine Learning enthusiast in Bhopal. Browse Python projects, developer skills, and contact details.">
+    <meta property="og:image" content="https://kaushalahirwar21.github.io/My_personal_portfolio/pic.png">
+    <meta property="og:site_name" content="Kaushal Singh Ahirwar Portfolio">
+
+    <!-- Twitter Card Share Preview -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://kaushalahirwar21.github.io/My_personal_portfolio/">
+    <meta name="twitter:title" content="Kaushal Singh Ahirwar | Python & Django Backend Developer Portfolio">
+    <meta name="twitter:description" content="Kaushal Singh Ahirwar is a Python Django Backend Developer and Machine Learning enthusiast in Bhopal. Browse Python projects, developer skills, and contact details.">
+    <meta name="twitter:image" content="https://kaushalahirwar21.github.io/My_personal_portfolio/pic.png">
+
+    <!-- Favicon & PWA Sizing -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="pic.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Stylesheets Loading -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
-
-    <!-- custom css -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- JSON-LD Structured Data Schema (Person) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kaushal Singh Ahirwar",
+      "url": "https://kaushalahirwar21.github.io/My_personal_portfolio/",
+      "image": "https://kaushalahirwar21.github.io/My_personal_portfolio/pic.png",
+      "jobTitle": "Backend Python Django Developer",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Bansal College of Engineering, Mandideep, Bhopal"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bhopal",
+        "addressRegion": "Madhya Pradesh",
+        "addressCountry": "India"
+      },
+      "sameAs": [
+        "https://github.com/kaushalahirwar21",
+        "https://www.linkedin.com/in/kaushal-singh-ahirwar",
+        "https://www.instagram.com/soldier.py",
+        "https://www.facebook.com/kaushal.ahirwar.923"
+      ],
+      "knowsAbout": [
+        "C++",
+        "Python",
+        "Django",
+        "Flask",
+        "SQL",
+        "MySQL",
+        "OpenCV",
+        "Data Structures",
+        "Object-Oriented Programming",
+        "Backend Development",
+        "Machine Learning"
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Cinematic Aurora Background -->
@@ -25,55 +98,57 @@
 
     <!------------ header design ---------------------------------------------------------------->
     <header class="header">
-        <a href="#" class="logo">My Portfolio</a>
-        <i class='bx  bx-menu' id="menu-icon"></i>  
+        <a href="#" class="logo" aria-label="Kaushal Singh Ahirwar Portfolio Home">My Portfolio</a>
+        <i class='bx bx-menu' id="menu-icon" role="button" aria-label="Toggle navigation menu" tabindex="0"></i>  
     
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#portfolio">Projects</a>
-            <a href="#contact">Contact Me</a>     
+        <nav class="navbar" role="navigation" aria-label="Main Navigation">
+            <a href="#home" class="active" aria-label="Navigate to Home section">Home</a>
+            <a href="#about" aria-label="Navigate to About section">About</a>
+            <a href="#skills" aria-label="Navigate to Skills section">Skills</a>
+            <a href="#portfolio" aria-label="Navigate to Projects section">Projects</a>
+            <a href="#contact" aria-label="Navigate to Contact section">Contact Me</a>     
         </nav>
     </header>
 
-    <!--------------home section----------------------------------------------------------------->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Hello, It's Me</h3>
-            <h1>Kaushal Ahirwar</h1>
-            <h3>And I'm a <span class="multiple-text"></span></h3>
-            <p>Final-year B.Tech student, skilled in C++ and    Python. Passionate about backend development, SQL, and creating efficient, scalable software solutions to solve real-world problems effectively.</p>
-
-            <div class="social-media">
-                <a href="https://www.facebook.com/kaushal.ahirwar.923/" target="_blank"><i class='bx  bxl-facebook'  ></i></a>
-                <a href="https://www.instagram.com/soldier.py?igsh=YmkzN3BpZ3lqbG5o" target="_blank"><i class='bx  bxl-instagram'  ></i></a>
-                <a href="https://www.linkedin.com/in/kaushal-singh-ahirwar" target="_blank"><i class='bx  bxl-linkedin'  ></i></a>
-                <a href="https://github.com/kaushalahirwar21" target="_blank"><i class='bx  bxl-github'  ></i></a>
+    <!-- Main landmark wrapping body content sections for SEO and screen readers -->
+    <main>
+        <!--------------home section----------------------------------------------------------------->
+        <section class="home" id="home" aria-label="Kaushal Singh Ahirwar Home Welcome Section">
+            <div class="home-content">
+                <h3>Hello, It's Me</h3>
+                <h1>Kaushal Ahirwar</h1>
+                <h3>And I'm a <span class="multiple-text"></span></h3>
+                <p>Final-year B.Tech student, skilled in C++ and Python. Passionate about backend development, SQL, and creating efficient, scalable software solutions to solve real-world problems effectively.</p>
+    
+                <div class="social-media">
+                    <a href="https://www.facebook.com/kaushal.ahirwar.923/" target="_blank" rel="noopener noreferrer" aria-label="Kaushal Singh Ahirwar Facebook profile"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://www.instagram.com/soldier.py?igsh=YmkzN3BpZ3lqbG5o" target="_blank" rel="noopener noreferrer" aria-label="Kaushal Singh Ahirwar Instagram profile"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.linkedin.com/in/kaushal-singh-ahirwar" target="_blank" rel="noopener noreferrer" aria-label="Kaushal Singh Ahirwar LinkedIn profile"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://github.com/kaushalahirwar21" target="_blank" rel="noopener noreferrer" aria-label="Kaushal Singh Ahirwar GitHub profile"><i class='bx bxl-github'></i></a>
+                </div>
+                <a href="resume.pdf" download class="btn resume-btn" aria-label="Download Kaushal Singh Ahirwar Resume in PDF format">Download Resume</a>
+    
             </div>
-            <a href="resume.pdf" download class="btn resume-btn">Download Resume</a>
-
-        </div>
-              <div class="home-img">
-              <img src="pic.png" alt="">
-              </div>
-    </section>
-
-    <!-------------- about section ---------------------------------------------------------------->
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="pic.png" alt="">
-        </div>
-
-        <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
-            <h3>Backend Developer</h3>
-            <p>I am Kaushal Singh Ahirwar, a final-year B.Tech student at Bansal College of Engineering, Mandideep, with a strong passion for technology and software development. I specialize in C and C++ programming and am currently learning Python to expand my programming skills. My solid understanding of Object-Oriented Programming (OOP) concepts allows me to design efficient and scalable solutions.
-<br><br>I am punctual, adaptable, and a strong team player, continuously improving my SQL and database management skills to strengthen my backend development capabilities. Being athletic and disciplined, I excel in collaborative environments while honing my communication and problem-solving skills.
-            </p>
-            <a href="#" class="btn">Read More</a>
-        </div>
-    </section>
+            <div class="home-img">
+                <img src="pic.png" alt="Kaushal Singh Ahirwar - Backend Python and Django Developer Portfolio Portrait" width="380" height="380">
+            </div>
+        </section>
+    
+        <!-------------- about section ---------------------------------------------------------------->
+        <section class="about" id="about" aria-label="About Kaushal Singh Ahirwar Biography">
+            <div class="about-img">
+                <img src="pic.png" alt="Kaushal Singh Ahirwar biography profile portrait" width="450" height="450" loading="lazy">
+            </div>
+    
+            <div class="about-content">
+                <h2 class="heading">About <span>Me</span></h2>
+                <h3>Backend Developer</h3>
+                <p>I am Kaushal Singh Ahirwar, a final-year B.Tech student at Bansal College of Engineering, Mandideep, with a strong passion for technology and software development. I specialize in C and C++ programming and am currently learning Python to expand my programming skills. My solid understanding of Object-Oriented Programming (OOP) concepts allows me to design efficient and scalable solutions.
+    <br><br>I am punctual, adaptable, and a strong team player, continuously improving my SQL and database management skills to strengthen my backend development capabilities. Being athletic and disciplined, I excel in collaborative environments while honing my communication and problem-solving skills.
+                </p>
+                <a href="#" class="btn" aria-label="Read more about Kaushal Singh Ahirwar biography">Read More</a>
+            </div>
+        </section>
 
     <!-------------- skills section ---------------------------------------------------------------->
     <section class="skills" id="skills">
@@ -169,45 +244,46 @@
 
     <!-- --------------------------------contact section whatsapp------------------------------------- -->
 
-    <section class="contact" id="contact">
-    <h2 class="heading">Contact <span>Me</span></h2>
-
-    <form id="contactForm">
-        <div class="input-box">
-            <div class="input-group">
-                <input type="text" id="firstName" required>
-                <label for="firstName">First Name</label>
+    <section class="contact" id="contact" aria-label="Contact Kaushal Singh Ahirwar Form">
+        <h2 class="heading">Contact <span>Me</span></h2>
+    
+        <form id="contactForm" aria-label="Send message form">
+            <div class="input-box">
+                <div class="input-group">
+                    <input type="text" id="firstName" required autocomplete="given-name" aria-required="true">
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="lastName" required autocomplete="family-name" aria-required="true">
+                    <label for="lastName">Last Name</label>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="text" id="lastName" required>
-                <label for="lastName">Last Name</label>
+    
+            <div class="input-box">
+                <div class="input-group full-width">
+                    <input type="text" id="phone" required autocomplete="tel" aria-required="true">
+                    <label for="phone">Mobile Number</label>
+                </div>
             </div>
-        </div>
-
-        <div class="input-box">
-            <div class="input-group full-width">
-                <input type="text" id="phone" required>
-                <label for="phone">Mobile Number</label>
+    
+            <div class="input-group full-width" style="margin-bottom: 2rem;">
+                <textarea id="message" cols="30" rows="5" required aria-required="true"></textarea>
+                <label for="message">Your Message</label>
             </div>
-        </div>
-
-        <div class="input-group full-width" style="margin-bottom: 2rem;">
-            <textarea id="message" cols="30" rows="5" required></textarea>
-            <label for="message">Your Message</label>
-        </div>
-        <input type="submit" value="Send Message" class="btn">
-    </form>
-</section>
+            <input type="submit" value="Send Message" class="btn" aria-label="Submit message form to Kaushal Singh Ahirwar">
+        </form>
+    </section>
+    </main>
 
 
     <!----------------- footer design? --------------------------------------------------------------->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-text">
             <p>Copyright &copy; 2025 by Soldier | All Right Reserved.</p>
         </div>
     
         <div class="footer-iconTop">
-             <a href="#home"><i class='bx  bx-arrow-up'  ></i></a>
+             <a href="#home" aria-label="Scroll back to the top of the home page"><i class='bx bx-arrow-up'></i></a>
         </div>
     </footer>
 

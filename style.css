@@ -795,3 +795,14 @@ span.multiple-text {
     .home-img img { width: 70vw; }
     .footer { flex-direction: column; gap: 2rem; text-align: center; }
 }
+
+/* Accessibility Focus States for Keyboard Navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible {
+    outline: 2px solid var(--main-color);
+    outline-offset: 4px;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+}

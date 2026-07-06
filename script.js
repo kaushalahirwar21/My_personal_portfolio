@@ -154,15 +154,15 @@ async function loadGitHubProjects() {
       
       box.innerHTML = `
           <div class="portfolio-img-container">
-              <img src="${fallbackImage}" alt="${repo.name} preview" loading="lazy">
+              <img src="${fallbackImage}" alt="Kaushal Singh Ahirwar project - ${repo.name.replace(/-/g, ' ')}" loading="lazy" width="350" height="196">
               <div class="img-overlay"></div>
           </div>
           <div class="portfolio-content">
               <div class="portfolio-header">
                   <h4>${repo.name.replace(/-/g, ' ')}</h4>
                   <div class="project-links">
-                      ${hasDemo ? `<a href="${repo.homepage}" target="_blank" class="external-link" title="Live Demo"><i class='bx bx-link-external'></i></a>` : ''}
-                      <a href="${repo.html_url}" target="_blank" class="github-link" title="View Source"><i class='bx bxl-github'></i></a>
+                      ${hasDemo ? `<a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" class="external-link" title="Live Demo" aria-label="View live demo of ${repo.name.replace(/-/g, ' ')}"><i class='bx bx-link-external'></i></a>` : ''}
+                      <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="github-link" title="View Source" aria-label="View GitHub source code of ${repo.name.replace(/-/g, ' ')}"><i class='bx bxl-github'></i></a>
                   </div>
               </div>
               <p>${repo.description || "A custom project developed to enhance my programming and problem-solving skills."}</p>

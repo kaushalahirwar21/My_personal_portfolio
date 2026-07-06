@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kaushalahirwar21.github.io/My_personal_portfolio/sitemap.xml

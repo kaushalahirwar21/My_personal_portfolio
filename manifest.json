@@ -1,0 +1,22 @@
+{
+  "name": "Kaushal Singh Ahirwar Portfolio",
+  "short_name": "Kaushal Portfolio",
+  "description": "Professional portfolio of Kaushal Singh Ahirwar - Backend Python, Django & AI Developer based in Bhopal.",
+  "start_url": "/My_personal_portfolio/",
+  "display": "standalone",
+  "background_color": "#02040a",
+  "theme_color": "#8b5cf6",
+  "orientation": "any",
+  "categories": [
+    "developer",
+    "portfolio",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "pic.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
