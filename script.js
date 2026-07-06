@@ -239,18 +239,7 @@ document.addEventListener('mousemove', (e) => {
     document.documentElement.style.setProperty('--mouse-y', y);
 });
 
-// Custom Glow Cursor
-const cursorGlow = document.createElement('div');
-cursorGlow.classList.add('cursor-glow');
-document.body.appendChild(cursorGlow);
 
-document.addEventListener('mousemove', (e) => {
-    // using requestAnimationFrame for 60fps performance
-    requestAnimationFrame(() => {
-        cursorGlow.style.top = e.clientY + 'px';
-        cursorGlow.style.left = e.clientX + 'px';
-    });
-});
 
 // 3D Glass Card Tilt Effect
 function applyTilt(element) {
@@ -291,3 +280,259 @@ function applyTilt(element) {
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.skills-box').forEach(applyTilt);
 });
+
+// ===================================== tsParticles Interactive Background =====================================
+function initTSParticles() {
+    if (typeof tsParticles === 'undefined') {
+        console.error("tsParticles library not loaded yet.");
+        return;
+    }
+    
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    tsParticles.load("tsparticles", {
+        fpsLimit: 60,
+        particles: {
+            number: {
+                value: window.innerWidth < 768 ? 40 : (reducedMotion ? 35 : 130), // More stars
+                density: {
+                    enable: true,
+                    area: 800
+                }
+            },
+            color: {
+                value: ["#8b5cf6", "#0ea5e9", "#ffffff"] // Purple, Blue, White stars
+            },
+            shape: {
+                type: ["circle", "star"], // Mix of circular and star-shaped stars
+                options: {
+                    star: {
+                        sides: 4 // 4-pointed stars for a realistic sparkle look
+                    }
+                }
+            },
+            opacity: {
+                value: { min: 0.05, max: reducedMotion ? 0.35 : 0.9 }, // Higher contrast twinkling limits
+                animation: {
+                    enable: !reducedMotion,
+                    speed: 2.2, // Faster organic twinkling cycle
+                    sync: false
+                }
+            },
+            size: {
+                value: { min: 0.8, max: 3.0 } // Increased slightly so star points are visible
+            },
+            links: {
+                enable: false
+            },
+            move: {
+                enable: true, // Always enable automatic motion
+                speed: 0.6, // Elegant, visible drift speed
+                direction: "bottom-right", // Diagonal star movement
+                random: false, // Drift in a unified space-travel path
+                straight: true, // Direct straight path loops
+                outModes: {
+                    default: "out"
+                }
+            }
+        },
+        interactivity: {
+            detectsOn: "window",
+            events: {
+                onHover: {
+                    enable: !reducedMotion,
+                    mode: ["grab", "bubble"] // Grab connections and Bubble highlights
+                },
+                onClick: {
+                    enable: !reducedMotion,
+                    mode: "push" // Click to spawn stars
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 180,
+                    links: {
+                        opacity: 0.25,
+                        color: "#8b5cf6"
+                    }
+                },
+                bubble: {
+                    distance: 180,
+                    size: 4.5,
+                    duration: 2,
+                    opacity: 0.8
+                },
+                push: {
+                    quantity: 4
+                }
+            }
+        },
+        detectRetina: true
+    });
+}
+
+// ===================================== Refined Particle Cursor Effect =====================================
+class ParticleCursor {
+    constructor() {
+        this.container = null;
+        this.particles = [];
+        this.lastX = null;
+        this.lastY = null;
+        this.colors = ['#8b5cf6', '#0ea5e9', '#ffffff']; // Purple, Blue, White
+        
+        // Detect media query for reduced motion
+        this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        // Set limits based on device capability
+        this.isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
+        this.maxParticles = this.isMobile ? 10 : 25; // Capped at 25 on desktop
+        this.spawnThreshold = this.isMobile ? 16 : 8; // pixels pointer must move before spawning another particle
+        
+        // If reduced motion is requested, scale back properties instead of disabling
+        if (this.reducedMotion) {
+            this.maxParticles = 5;
+            this.spawnThreshold = 24;
+            console.log("Particle Cursor: prefers-reduced-motion is active. Running in minimized fallback mode.");
+        }
+        
+        // Safe DOM loading check
+        if (document.body) {
+            this.init();
+        } else {
+            document.addEventListener('DOMContentLoaded', () => this.init());
+        }
+    }
+    
+    init() {
+        // Create particle container
+        this.container = document.createElement('div');
+        this.container.id = 'particle-container';
+        document.body.appendChild(this.container);
+        
+        // Mouse and touch event listeners
+        window.addEventListener('mousemove', (e) => this.onMove(e.clientX, e.clientY));
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                this.onMove(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: true });
+        
+        // Animation loop
+        this.tick();
+    }
+    
+    onMove(x, y) {
+        if (this.lastX === null || this.lastY === null) {
+            this.lastX = x;
+            this.lastY = y;
+            return;
+        }
+        
+        const dist = Math.hypot(x - this.lastX, y - this.lastY);
+        if (dist >= this.spawnThreshold) {
+            // Calculate spawn direction/velocity based on cursor movement
+            const angle = Math.atan2(y - this.lastY, x - this.lastX);
+            const speed = Math.min(dist * 0.04, 1.2); // Cap velocity for elegance
+            
+            // Random offset speed perpendicular/opposite to movement direction
+            const vx = -Math.cos(angle) * speed + (Math.random() - 0.5) * 0.3;
+            const vy = -Math.sin(angle) * speed + (Math.random() - 0.5) * 0.3;
+            
+            this.spawnParticle(x, y, vx, vy);
+            this.lastX = x;
+            this.lastY = y;
+        }
+    }
+    
+    spawnParticle(x, y, vx, vy) {
+        // Check hard particle count limit
+        if (this.particles.length >= this.maxParticles) {
+            // Remove oldest particle immediately to keep pool small
+            const oldest = this.particles.shift();
+            if (oldest && oldest.el.parentNode) {
+                oldest.el.remove();
+            }
+        }
+        
+        const el = document.createElement('div');
+        el.className = 'cursor-particle';
+        
+        // Random size between 2px and 6px
+        const size = Math.floor(Math.random() * 5) + 2; 
+        el.style.width = `${size}px`;
+        el.style.height = `${size}px`;
+        
+        // Random color
+        const color = this.colors[Math.floor(Math.random() * this.colors.length)];
+        el.style.color = color; // Uses currentColor in CSS
+        
+        // Initial transform
+        el.style.transform = `translate3d(${x - size/2}px, ${y - size/2}px, 0) scale(1)`;
+        el.style.opacity = '0.8';
+        
+        this.container.appendChild(el);
+        
+        this.particles.push({
+            el,
+            x: x - size/2,
+            y: y - size/2,
+            vx,
+            vy,
+            size,
+            scale: 1,
+            opacity: 0.8,
+            life: 1.0, // progress 1.0 down to 0.0
+            decay: 0.02 + Math.random() * 0.02 // random life duration
+        });
+    }
+    
+    tick() {
+        const nextParticles = [];
+        
+        for (let i = 0; i < this.particles.length; i++) {
+            const p = this.particles[i];
+            
+            p.life -= p.decay;
+            
+            if (p.life <= 0) {
+                if (p.el.parentNode) {
+                    p.el.remove();
+                }
+                continue; // Skip adding to nextParticles list (deletes it)
+            }
+            
+            // Update physics (drift upwards slowly and add friction/drag)
+            p.vx *= 0.96;
+            p.vy *= 0.96;
+            p.vy -= 0.04; // slight float upward
+            p.x += p.vx;
+            p.y += p.vy;
+            p.scale = p.life;
+            p.opacity = p.life * 0.8;
+            
+            // Apply updates
+            p.el.style.transform = `translate3d(${p.x}px, ${p.y}px, 0) scale(${p.scale})`;
+            p.el.style.opacity = p.opacity;
+            
+            nextParticles.push(p);
+        }
+        
+        this.particles = nextParticles;
+        
+        requestAnimationFrame(() => this.tick());
+    }
+}
+
+// Instantiate background and cursor safely
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initTSParticles();
+    new ParticleCursor();
+} else {
+    document.addEventListener('DOMContentLoaded', () => {
+        initTSParticles();
+        new ParticleCursor();
+    });
+}
+
+
