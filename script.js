@@ -141,8 +141,26 @@ async function loadGitHubProjects() {
     
     container.innerHTML = ""; // clear old content
 
-    // Filter out forks if preferred
-    const myRepos = repos.filter(repo => !repo.fork);
+    // Show only high-quality Django, Python and AI projects in a customized order
+    const allowedProjects = [
+      "Room_Dekho",
+      "Choudhary-Travels",
+      "CHEAT-CATCHER",
+      "Mentor.ai",
+      "Aptitude-Master"
+    ];
+
+    // Map repository names to custom local image files
+    const customImages = {
+      "Room_Dekho": "room_dekho.png",
+      "CHEAT-CATCHER": "cheat_catcher.png",
+      "Aptitude-Master": "aptitude_master.png"
+    };
+
+    const myRepos = repos.filter(repo => allowedProjects.includes(repo.name));
+    
+    // Sort projects to match the order defined in allowedProjects
+    myRepos.sort((a, b) => allowedProjects.indexOf(a.name) - allowedProjects.indexOf(b.name));
 
     myRepos.forEach((repo, index) => {
       const box = document.createElement("div");
@@ -150,11 +168,14 @@ async function loadGitHubProjects() {
       
       const language = repo.language || "Markdown";
       const hasDemo = repo.homepage && repo.homepage !== "" && repo.homepage !== repo.html_url;
-      const fallbackImage = `https://opengraph.githubassets.com/1/${githubUsername}/${repo.name}`;
+      
+      // Use local custom image if defined, otherwise fallback to GitHub open graph preview image
+      const isCustomImage = repo.name in customImages;
+      const defaultImgSrc = isCustomImage ? customImages[repo.name] : `https://opengraph.githubassets.com/1/${githubUsername}/${repo.name}`;
       
       box.innerHTML = `
           <div class="portfolio-img-container">
-              <img src="${fallbackImage}" alt="Kaushal Singh Ahirwar project - ${repo.name.replace(/-/g, ' ')}" loading="lazy" width="350" height="196">
+              <img src="${defaultImgSrc}" alt="Kaushal Singh Ahirwar project - ${repo.name.replace(/-/g, ' ')}" loading="lazy" width="350" height="196">
               <div class="img-overlay"></div>
           </div>
           <div class="portfolio-content">
@@ -188,8 +209,10 @@ async function loadGitHubProjects() {
       container.appendChild(box);
       applyTilt(box);
       
-      // Attempt to load the README or Repo image asynchronously without blocking UI
-      fetchProjectImage(repo, box.querySelector('img'));
+      // Only fetch image from README if not using a custom local image
+      if (!isCustomImage) {
+          fetchProjectImage(repo, box.querySelector('img'));
+      }
     });
     
     // Reveal newly added items with staggered effect
